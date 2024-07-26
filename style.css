@@ -1,20 +1,35 @@
 body {
     font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
-    background-color: #f7f7f6;
+    background: url('https://github.com/AhmedHaroon07/UITU-GpaCalculator/blob/96c7ab16010914747c49ec78ea0c71a7e9dc5685/sirf%20dikhnay%20mein%20bari.jpg') no-repeat center center fixed;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
+    overflow: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    filter: blur(10px);
+    z-index: -1;
 }
 
 .container {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 400px;
     max-width: 90%;
+    z-index: 1;
 }
 
 h1 {
