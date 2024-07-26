@@ -1,4 +1,5 @@
 # UITU-GpaCalculator
+Please Star this repository
 A GPA calculator for UITU students.
 Grading Scheme is also given at the end of this file
 
