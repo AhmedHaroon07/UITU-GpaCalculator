@@ -3,19 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPA Calculator by Ahmed Haroon</title>
+    <title>GPA Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <h1><b>GPA Calculator</b></h1>
+        <h1>GPA Calculator</h1>
         <form id="gpa-form">
+          <label>For my UITU Peeps ❤️🤫</lable>
             <label for="courses">Enter the number of courses:</label>
             <input type="number" id="courses" name="courses" required min="1">
             <div id="course-inputs"></div>
             <button type="button" onclick="addCourseInputs()">Add Courses</button>
-            <!--<button type="submit">Calculate GPA</button>-->
-        </form>
+            <!--<button type="submit">Calculate GPA</button>
+        </form>-->
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator by Syed Ahmed Haroon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GPA Calculator</h1>
+        <form id="gpa-form">
+          <label>For my UITU Peeps ❤️🤫</lable>
+            <label for="courses">Enter the number of courses:</label>
+            <input type="number" id="courses" name="courses" required min="1">
+            <div id="course-inputs"></div>
+            <button type="button" onclick="addCourseInputs()">Add Courses</button>
+            <!--<button type="submit">Calculate GPA</button>
+        </form>-->
         <div id="result"></div>
     </div>
     <script src="script.js"></script>
