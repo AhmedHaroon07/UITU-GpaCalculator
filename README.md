@@ -1,6 +1,8 @@
 # UITU-GpaCalculator
 A GPA calculator for UITU students.
+Grading Scheme is also given at the end of this file
 
+link for the site is : https://ahmedharoon07.github.io/UITU-GpaCalculator/
 ![uit logo](https://github.com/user-attachments/assets/6a747105-bdb2-4663-852f-028e2f0d91cb)
 
 
