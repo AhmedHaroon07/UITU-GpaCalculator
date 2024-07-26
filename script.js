@@ -24,32 +24,57 @@ document.getElementById('gpa-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const courseCount = document.getElementById('courses').value;
     const courseData = [];
+    let totalPoints = 0;
+    let totalCreditHours = 0;
 
     for (let i = 0; i < courseCount; i++) {
-        const crhrs = document.getElementById(`crhrs-${i}`).value;
-        const sessional = document.getElementById(`sessional-${i}`).value;
-        const finalmks = document.getElementById(`final-${i}`).value;
-        const labmarks = document.getElementById(`lab-${i}`).value;
-        
-        courseData.push({ crhrs, sessional, finalmks, labmarks });
+        const crhrs = parseInt(document.getElementById(`crhrs-${i}`).value);
+        const sessional = parseFloat(document.getElementById(`sessional-${i}`).value);
+        const finalmks = parseFloat(document.getElementById(`final-${i}`).value);
+        const labmarks = parseFloat(document.getElementById(`lab-${i}`).value);
+
+        let result = 0;
+        if (crhrs === 4) {
+            result = ((finalmks + sessional) * 3) + ((labmarks / 50) * 100);
+            result = result / crhrs;
+        } else if (crhrs === 3) {
+            result = ((finalmks + sessional) * 3) / crhrs;
+        } else {
+            alert("Invalid credit hours. Please enter a valid course credit hour (3 or 4).");
+            return;
+        }
+
+        let courseGpa = 0;
+        if (result >= 95 && result <= 100) {
+            courseGpa = 4.00;
+        } else if (result >= 90 && result <= 94) {
+            courseGpa = 4.00;
+        } else if (result >= 85 && result <= 89) {
+            courseGpa = 3.67;
+        } else if (result >= 80 && result <= 84) {
+            courseGpa = 3.33;
+        } else if (result >= 75 && result <= 79) {
+            courseGpa = 3.00;
+        } else if (result >= 70 && result <= 74) {
+            courseGpa = 2.67;
+        } else if (result >= 65 && result <= 69) {
+            courseGpa = 2.33;
+        } else if (result >= 60 && result <= 64) {
+            courseGpa = 2.00;
+        } else if (result >= 55 && result <= 59) {
+            courseGpa = 1.67;
+        } else {
+            courseGpa = 0.0;
+        }
+
+        const points = courseGpa * crhrs;
+        totalPoints += points;
+        totalCreditHours += crhrs;
     }
 
-    // Send course data to the backend server
-    fetch('http://localhost:8080/calculate', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ courses: courseData })
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('result').innerHTML = `
-            <p>Your Semester GPA (SGPA) is: ${data.sgpa.toFixed(2)}</p>
-        `;
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        document.getElementById('result').innerHTML = `
-            <p style="color: red;">Error calculating GPA. Please try again.</p>
-        `;
-    });
+    const sgpa = totalPoints / totalCreditHours;
+
+    document.getElementById('result').innerHTML = `
+        <p>Your Semester GPA (SGPA) is: ${sgpa.toFixed(2)}</p>
+    `;
 });
