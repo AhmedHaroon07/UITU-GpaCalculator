@@ -1,6 +1,6 @@
 body {
-    font-family: Futura, sans-serif;
-    background-color: #f7f7f7;
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    background-color: #f7f7f6;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -19,7 +19,7 @@ body {
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #000;
 }
 
 label {
