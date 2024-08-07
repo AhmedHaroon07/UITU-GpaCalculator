@@ -75,6 +75,6 @@ document.getElementById('gpa-form').addEventListener('submit', function(e) {
     const sgpa = totalPoints / totalCreditHours;
 
     document.getElementById('result').innerHTML = `
-        <p>Your Semester GPA (SGPA) is: ${sgpa.toFixed(2)}</p>
+        <p>Your Semester GPA (SGPA) is: ${sgpa.toFixed(2)} Mubarak Ho 🥳</p>
     `;
 });
